@@ -1,8 +1,10 @@
 // import React from "react"
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
+import Form from "react-bootstrap/Form"
 import React, { useState } from "react";
+import { Dropdown } from "react-bootstrap";
+import { DropdownButton } from "react-bootstrap";
 // import Form from "./Form.js"
 
 export default function Main() {
@@ -14,22 +16,27 @@ export default function Main() {
   return (
     <div>
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title className="donate--header">Donation</Modal.Title>
+        <Modal.Header className="donate--header" closeButton>
+          <Modal.Title>Donation</Modal.Title>
         </Modal.Header>
-        <Modal.Body>We're grateful for your contribution!</Modal.Body>
+        <Modal.Body className="model--style">
+          We're grateful for your contribution!
+        </Modal.Body>
+        <Dropdown>
+        <DropdownButton className="dropdown-button" id="dropdown-basic-button" variant="dark" title="Choose your currency">
+          <Dropdown.Item>NPR</Dropdown.Item>
+          <Dropdown.Item>USD</Dropdown.Item>
+          <Dropdown.Item>EUR</Dropdown.Item>
+        </DropdownButton>
+        </Dropdown>
         <Form>
           <Form.Group className="form--amount" controlId="formAmount">
             <Form.Label>Amount</Form.Label>
             <Form.Control type="amount" placeholder="Enter amount to donate" />
-            {/* <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-            </Form.Text> */}
           </Form.Group>
 
-          
-          <Form.Group className="from--check" controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="I agree to donate" />
+          <Form.Group className="form--check" controlId="formBasicCheckbox">
+            <Form.Check type="checkbox" label="Confirm" />
           </Form.Group>
         </Form>
         <Modal.Footer>
@@ -50,7 +57,7 @@ export default function Main() {
           className="main--image"
         />
         <main className="main--title">
-          <h2>Join Us</h2>
+          <h1>Join Us</h1>
           <h3>To Make a Difference!</h3>
           <button className="form--button" onClick={handleShow}>
             Donate
