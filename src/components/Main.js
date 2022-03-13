@@ -16,23 +16,24 @@ const handleShow = () => setShow(true);
         
         <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Donation</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Body>We're grateful for your contribution!</Modal.Body>
+       
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
           <Button variant="primary" onClick={handleClose}>
-            Save Changes
+            Donate
           </Button>
         </Modal.Footer>
       </Modal>
       
       <div className="main--body">
        <img src="./images/chairty.png"
-            height='450'
-            widht='500'
+            height='700'
+            widht='1600'
             className="main--image" />
         <main className="main--title">
             <h2>Join Us</h2>
