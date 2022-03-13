@@ -18,7 +18,8 @@ const handleShow = () => setShow(true);
         <Modal.Header closeButton>
           <Modal.Title>Donation</Modal.Title>
         </Modal.Header>
-        <Modal.Body>We're grateful for your contribution!</Modal.Body>
+        <Modal.Body>We're grateful for your contribution!
+        </Modal.Body>
        
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
