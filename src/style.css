@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+ 
 }
 
 body {
@@ -12,9 +13,11 @@ body {
 nav {
   display: flex;
   align-items: center;
-  background-color: #21222A;
+  background-color:black;
   height: 90px;
-  padding: 30px 25px;
+  width: 100%;
+  padding: 10px 25px;
+  border-radius: 8px;;
 }
 
 .nav--logo_text, .nav--title {
@@ -25,7 +28,7 @@ nav {
   margin-right: auto;
   color: #61DAFB;
   font-weight: 700;
-  font-size: 22px;
+  font-size: 29px;
 }
 
 .nav--title {
@@ -36,16 +39,18 @@ nav {
 .main--body{
   display:flex;
   margin-right: auto;
+  background-color:#21222A;
+  height:800px;
 }
 
 .main--title {
-  margin: 0;
-  font-size: 24px;
+  
+  font-size: 27px;
   letter-spacing: -0.05em;
   color: white;
   padding: 70px 15px;
   text-align: right;
-  margin-right: auto;
+  margin-right: 17px;
   margin-top:15%;
 }
 
@@ -64,5 +69,36 @@ nav {
   margin-right: auto;
   
 }
+
+
+.donate--header{
+  background-color: chocolate;
+}
+
+.form--amount, .form--check, .dropdown-button{
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+.dropdown-button{
+  margin-bottom: 10px;
+  border-radius: 5px;
+  
+}
+.footer{
+  height: 200px;
+  border-radius: 7px;
+
+}
+
+.footer--text{
+  color:white;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+
+}
+
 
 
