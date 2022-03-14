@@ -73,11 +73,13 @@ nav {
 }
 
 
+
 .donate--header{
   background-color: chocolate;
+  width:auto;
 }
 
-.form--amount, .form--check, .form--name{
+.form--amount, .form--name, .form--message{
   margin-right: 15px;
   margin-left: 15px;
 }
@@ -107,8 +109,16 @@ margin-bottom: 10px;
 
 }
 
-.table--button{
-  margin-left: 60px;
+.time--button{
+  display:flex;
+  margin-left: 70px;
   color:burlywood;
-  background-color: #282D35;
+  
+
+  
+}
+
+.table--display{
+  display:flex;
+  font-size:medium
 }

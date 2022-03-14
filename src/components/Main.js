@@ -24,6 +24,7 @@ export default function Main() {
   const changeName = (event) => {
     setName(event.target.value);
   };
+ 
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -44,8 +45,10 @@ export default function Main() {
       name: name,
       amount: amount,
       currency: currency,
+   
       timestamp: Date.now(),
     };
+
     const docRef = await addDoc(collection(db, "donationDetails"), data);
     console.log("Document written with ID: ", docRef.id);
 
@@ -53,12 +56,14 @@ export default function Main() {
   };
 
   return (
+  
     <div>
+        
       <Modal show={show} onHide={handleClose}>
         <Modal.Header className="donate--header" closeButton>
           <Modal.Title>Donation</Modal.Title>
         </Modal.Header>
-        <Modal.Body className="model--style">
+        <Modal.Body>
           We're grateful for your contribution!
         </Modal.Body>
 
@@ -89,7 +94,16 @@ export default function Main() {
             <Form.Label>Amount</Form.Label>
             <Form.Control type="number" placeholder="Enter amount to donate" />
           </Form.Group>
+          {/* <Form.Group className="form--message" controlId="formMessage">
+            <Form.Label>Message</Form.Label>
+            <Form.Control
+              onChange={changeMessage}
+              type="message"
+              placeholder="Please type any message here."
+            />
+          </Form.Group> */}
         </Form>
+        
 
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>

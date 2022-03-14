@@ -6,8 +6,6 @@ import { useState } from "react";
 import Table from "react-bootstrap/Table";
 import Modal from "react-bootstrap/Modal";
 
-// import db from "./firebase";
-
 export default function Navbar() {
   const [details, setDetails] = useState(null);
   const [show, setShow] = useState(false);
@@ -51,6 +49,30 @@ export default function Navbar() {
     return time;
   }
 
+  const ascSorting =()=> {
+      
+          const ascSorted = [...details].sort((a,b)=>
+          a['timestamp']>b['timestamp'] ? 1 : -1
+          );
+          setDetails(ascSorted);      
+}
+
+const dscSorting =()=> {
+      
+    const dscSorted = [...details].sort((a,b)=>
+    a['timestamp']<b['timestamp'] ? 1 : -1
+    );
+    setDetails(dscSorted);      
+}
+
+// const sortingAmount =()=> {
+      
+//     const sortedAmount = [...details].sort((a,b)=>
+//     a['amount']>b['amount'] ? 1 : -1
+//     );
+//     setDetails(sortedAmount);
+
+// }
 
   return (
     <nav>
@@ -58,10 +80,11 @@ export default function Navbar() {
       <button className="nav--title" onClick={handleClick}>
         View Donations
       </button>
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleClose} className="model--table">
         <Modal.Header className="donate--header" closeButton>
           <Modal.Title>DonationDetails</Modal.Title>
         </Modal.Header>
+
         <Modal.Body className="model--style">
           
       {details && (
@@ -70,10 +93,20 @@ export default function Navbar() {
             <tr>
               <th>Name</th>
               <th>Amount</th>
-              <th>Currency</th>
-              <th>Time
-                  <button className="table--button">Sort ⬆️</button>
+              <th>Currency</th>  
+              <th className="table--display">Time
+                  <div className="time--button">
+                  <button 
+                  onClick={() => ascSorting('timestamp')}
+                  >⬇
+                      </button>  
+                      <button 
+                  onClick={() => dscSorting('timestamp')}
+                  >⬆
+                      </button>
+                      </div>
               </th>
+        
             </tr>
           </thead>
           <tbody>
@@ -83,6 +116,7 @@ export default function Navbar() {
                 <td>{i.amount}</td>
                 <td>{i.currency}</td>
                 <td>{timeConverter(i.timestamp)}</td>
+               
               </tr>
             ))}
           </tbody>
@@ -94,4 +128,4 @@ export default function Navbar() {
 
     </nav>
   );
-}
+            }
