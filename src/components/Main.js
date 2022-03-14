@@ -1,17 +1,57 @@
-// import React from "react"
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form"
+import Form from "react-bootstrap/Form";
 import React, { useState } from "react";
-import { Dropdown } from "react-bootstrap";
-import { DropdownButton } from "react-bootstrap";
-// import Form from "./Form.js"
+import { addDoc, collection } from "firebase/firestore";
+// import { query, where, getDocs } from "firebase/firestore";
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
 
 export default function Main() {
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const [currency, setCurrency] = useState(null);
+  const changeSelectOptionHandler = (event) => {
+    setCurrency(event.target.value);
+  };
+
+  const [amount, setAmount] = useState(null);
+  const changeAmount = (event) => {
+    setAmount(event.target.value);
+  };
+  const [name, setName] = useState("Anonymous");
+  const changeName = (event) => {
+    setName(event.target.value);
+  };
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    const firebaseApp = initializeApp({
+      apiKey: "AIzaSyBRVJgbVfvAMF8GtfqIadQwV3jPMQQ0hjc",
+      authDomain: "demooooo-f1e7d.firebaseapp.com",
+      projectId: "demooooo-f1e7d",
+      storageBucket: "demooooo-f1e7d.appspot.com",
+      messagingSenderId: "295941954870",
+      appId: "1:295941954870:web:0af92bc8a3e757b2c1e797",
+      measurementId: "G-VYVHZCSGGR",
+    });
+
+    const db = getFirestore();
+
+    const data = {
+      name: name,
+      amount: amount,
+      currency: currency,
+      timestamp: Date.now(),
+    };
+    const docRef = await addDoc(collection(db, "donationDetails"), data);
+    console.log("Document written with ID: ", docRef.id);
+
+    handleClose();
+  };
 
   return (
     <div>
@@ -22,28 +62,46 @@ export default function Main() {
         <Modal.Body className="model--style">
           We're grateful for your contribution!
         </Modal.Body>
-        <Dropdown>
-        <DropdownButton className="dropdown-button" id="dropdown-basic-button" variant="dark" title="Choose your currency">
-          <Dropdown.Item>NPR</Dropdown.Item>
-          <Dropdown.Item>USD</Dropdown.Item>
-          <Dropdown.Item>EUR</Dropdown.Item>
-        </DropdownButton>
-        </Dropdown>
-        <Form>
-          <Form.Group className="form--amount" controlId="formAmount">
-            <Form.Label>Amount</Form.Label>
-            <Form.Control type="amount" placeholder="Enter amount to donate" />
-          </Form.Group>
 
+        <Form>
+          <Form.Group className="form--name" controlId="formName">
+            <Form.Label>Name</Form.Label>
+            <Form.Control
+              onChange={changeName}
+              default="Anonymous"
+              type="name"
+              placeholder="Enter your name (You may donate Anonymously too)"
+            />
+          </Form.Group>
+          <Form.Select
+            className="form--currency"
+            onChange={changeSelectOptionHandler}
+          >
+            <option>Choose your currency</option>
+            <option>NPR</option>
+            <option>USD</option>
+            <option>EUR</option>
+          </Form.Select>
+
+          <Form.Group
+            className="form--amount"
+            controlId="formAmount"
+            onChange={changeAmount}
+          >
+            <Form.Label>Amount</Form.Label>
+            <Form.Control type="number" placeholder="Enter amount to donate" />
+          </Form.Group>
+          {/* 
           <Form.Group className="form--check" controlId="formBasicCheckbox">
             <Form.Check type="checkbox" label="Confirm" />
-          </Form.Group>
+          </Form.Group> */}
         </Form>
+
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="primary" onClick={handleFormSubmit}>
             Donate
           </Button>
         </Modal.Footer>
