@@ -3,7 +3,6 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import React, { useState } from "react";
 import { addDoc, collection } from "firebase/firestore";
-// import { query, where, getDocs } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
@@ -91,10 +90,6 @@ export default function Main() {
             <Form.Label>Amount</Form.Label>
             <Form.Control type="number" placeholder="Enter amount to donate" />
           </Form.Group>
-          {/* 
-          <Form.Group className="form--check" controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Confirm" />
-          </Form.Group> */}
         </Form>
 
         <Modal.Footer>
