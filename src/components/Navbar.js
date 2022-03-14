@@ -31,8 +31,7 @@ export default function Navbar() {
 
     const querySnapshot = await getDocs(q);
     const data = [];
-    querySnapshot.forEach((doc) => {
-      // console.log(doc.id, ' => ', doc.data());
+    querySnapshot.forEach((doc) => {;
       data.push(doc.data());
     });
     setDetails(data);
@@ -51,7 +50,7 @@ export default function Navbar() {
     var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
     return time;
   }
-  
+
 
   return (
     <nav>
@@ -72,7 +71,9 @@ export default function Navbar() {
               <th>Name</th>
               <th>Amount</th>
               <th>Currency</th>
-              <th>Time</th>
+              <th>Time
+                  <button className="table--button">Sort ⬆️</button>
+              </th>
             </tr>
           </thead>
           <tbody>

@@ -67,7 +67,6 @@ export default function Main() {
             <Form.Label>Name</Form.Label>
             <Form.Control
               onChange={changeName}
-              default="Anonymous"
               type="name"
               placeholder="Enter your name (You may donate Anonymously too)"
             />
