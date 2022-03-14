@@ -17,7 +17,7 @@ nav {
   height: 90px;
   width: 100%;
   padding: 10px 25px;
-  border-radius: 8px;;
+  border-radius: 8px;
   margin-top: 15px;
 }
 
@@ -94,19 +94,23 @@ margin-bottom: 10px;
   width:94%;
 }
 
-.footer{
-  height: 200px;
-  border-radius: 9px;
+/* .footer{
+    text-align: center;
+  border-radius: 10px;
 
-}
+} */
 
 .footer--text{
+
   color:white;
-  text-align: center;
   justify-content: center;
   align-items: center;
-  background-color: black;
-
+  background-color:black;
+  height: 60px;
+  width: 100%;
+  padding: 10px 40%;
+  border-radius: 8px;
+ 
 }
 
 .time--button{
