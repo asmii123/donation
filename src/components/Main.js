@@ -20,7 +20,7 @@ export default function Main() {
   const changeAmount = (event) => {
     setAmount(event.target.value);
   };
-  const [name, setName] = useState("Anonymous");
+  const [name, setName] = useState('Anonymous');
   const changeName = (event) => {
     setName(event.target.value);
   };
@@ -45,7 +45,6 @@ export default function Main() {
       name: name,
       amount: amount,
       currency: currency,
-   
       timestamp: Date.now(),
     };
 
@@ -74,6 +73,7 @@ export default function Main() {
               onChange={changeName}
               type="name"
               placeholder="Enter your name (You may donate Anonymously too)"
+              default="Anonymous"
             />
           </Form.Group>
           <Form.Select
@@ -94,14 +94,6 @@ export default function Main() {
             <Form.Label>Amount</Form.Label>
             <Form.Control type="number" placeholder="Enter amount to donate" />
           </Form.Group>
-          {/* <Form.Group className="form--message" controlId="formMessage">
-            <Form.Label>Message</Form.Label>
-            <Form.Control
-              onChange={changeMessage}
-              type="message"
-              placeholder="Please type any message here."
-            />
-          </Form.Group> */}
         </Form>
         
 

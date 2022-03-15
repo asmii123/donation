@@ -65,15 +65,6 @@ const dscSorting =()=> {
     setDetails(dscSorted);      
 }
 
-// const sortingAmount =()=> {
-      
-//     const sortedAmount = [...details].sort((a,b)=>
-//     a['amount']>b['amount'] ? 1 : -1
-//     );
-//     setDetails(sortedAmount);
-
-// }
-
   return (
     <nav>
       <h3 className="nav--logo_text">Donate For A Cause!</h3>
